@@ -1,0 +1,33 @@
+baseURL = "https://127.0.0.1"
+languageCode = "zh-cn"
+title = "Scrapyer's blog"
+theme = "github-style"
+googleAnalytics = "UA-123456-789"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  author = "Zxing"
+  description = "In solitude, where we are least alone."
+  github = "zheng-oh"
+  wechat = "zheng_oh"
+  email = "zxing_oh@163.com"
+  url = "https://127.0.0.1"
+  institution = "Huazhong Agricultural University"
+  keywords = "blog, google analytics"
+  rss = false
+  lastmod = true
+  favicon = "/images/scrapyer.ico"
+  location = "Wuhan,China"
+
+  [[params.links]]
+    title = "Link"
+    href = "https://gitee.com/zheng-oh"
+    icon = "/images/mayun.png"
+  [[params.links]]
+    title = "Link2"
+    href = "https://file.scrapyer.com"
+    icon = "/images/files.png"
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]

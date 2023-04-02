@@ -1,0 +1,164 @@
+{{ partial "menus.html" . }}
+<div class="container-xl px-3 px-md-4 px-lg-5">
+  <div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+    <div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0">
+      <div class="h-card mt-md-n5">
+        <div class="user-profile-sticky-bar js-user-profile-sticky-bar d-none d-md-block" id="headerStuck">
+          <div class="user-profile-mini-vcard d-table">
+            <span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2">
+              {{ with $.Site.Params.avatar }}
+              <img class="rounded-1 avatar-user" height="32" width="32" src="{{ $.Site.Params.avatar }}">
+              {{ else }}
+              <img class="rounded-1 avatar-user" height="32" width="32" src="{{ "images/zxing.png" | absURL }}">
+              {{ end }}
+            </span>
+            <span class="d-table-cell v-align-middle lh-condensed">
+              <strong>{{ .Site.Params.author }}</strong>
+            </span>
+          </div>
+        </div>
+        <div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
+          <div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0" style="z-index:4;">
+            {{ with $.Site.Params.avatar }}
+            <a href="{{ $.Site.Params.avatar }}">
+              <img style="height:auto;" alt="Avatar" width="260" height="260" id="headerImg"
+                class="avatar avatar-user width-full border bg-white" src="{{ $.Site.Params.avatar }}">
+            </a>
+            {{ else }}
+            <a href="{{ "images/zxing.png" | absURL }}">
+              <img style="height:auto;" alt="Avatar" width="260" height="260" id="headerImg"
+                class="avatar avatar-user width-full border bg-white" src="{{ "images/zxing.png" | absURL }}">
+            </a>
+            {{ end }}
+          </div>
+
+          <div
+            class="vcard-names-container float-left col-10 col-md-12 pt-1 pt-md-3 pb-1 pb-md-3 js-sticky js-user-profile-sticky-fields"
+            data-original-top="0px" style="position: sticky;">
+            <h1 class="vcard-names pl-2 pl-md-0">
+              <span class="p-name vcard-fullname d-block overflow-hidden">{{ .Site.Params.author }}</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="p-note user-profile-bio mb-3 js-user-profile-bio f4">
+          <div>{{ .Site.Params.Description }}</div>
+        </div>
+
+        <div class="d-flex flex-column">
+          <div class="js-profile-editable-area d-flex flex-column d-md-block">
+            <ul class="vcard-details">
+              {{ if .Site.Params.location }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target hide-sm hide-md">
+                <svg class="octicon octicon-location" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z">
+                  </path>
+                </svg>
+                <span class="p-label">{{ .Site.Params.location }}</span>
+              </li>
+              {{ end }}
+              {{ if .Site.Params.institution }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target hide-sm hide-md">
+                <svg t="1627112280874" class="octicon octicon-institution" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2660" width="16" height="16"><path d="M259.169 439.689V326.567l-4.55 3.64-0.145 0.096c-14.689 9.788-33.52 6.4-43.65-7.52-9.803-13.472-6.59-31.989 6.84-43.287l0.503-0.416L478.01 91.392c20.846-15.048 48.625-15.199 68.558-0.388l0.529 0.399 259.686 187.575 0.358 0.242c14.047 9.706 17.175 28.8 7.72 42.718l-0.29 0.42-0.305 0.425c-9.791 13.457-28.89 17.175-42.542 8.282l-0.412-0.273-0.13-0.09-0.176-0.063-0.25-0.103-0.255-0.12a4.95 4.95 0 0 1-2.037-1.87l-0.126-0.222-0.036-0.07-3.473-2.777v114.212h106.228c32.115 0 58.586 25.82 59.627 57.682l0.024 0.968 0.008 0.98-0.001 382.386 0.122 0.015c15.164 1.93 26.677 14.394 27.148 30.013l0.015 0.474v0.523c0 17.306-13.522 30.994-30.76 31.27H97.283C79.796 944 66 930.211 66 912.73c0-15.921 11.445-28.78 26.7-30.948l0.463-0.062 0.121-0.015V499.32c0-32.1 25.833-58.559 57.71-59.6l0.968-0.023 0.981-0.008H259.17z m302.307 338.51H459.249V880.37h102.227V778.199zM259.169 502.228H156.942V880.37h102.227V502.228z m251.73-359.019L321.736 279.932c0.51 130.912 0.547 197.228 0.11 198.95l-0.11 401.488h74.945V764.382c0-29.137 25.844-49.404 58.663-49.807l0.996-0.006h110.228c32.26 0 59.117 20.24 59.65 48.94l0.009 0.873-0.001 115.988h76.035V282.604L510.899 143.209z m253.929 359.018v378.142h102.228V502.227H764.828z m-253.92-172.708c63.325 0 114.228 50.877 114.228 114.17 0 62.575-51.272 114.171-114.228 114.171-63.324 0-114.227-50.876-114.227-114.17 0-63.294 50.903-114.171 114.227-114.171z m0 61.45c-28.35 0-51.659 23.296-51.659 51.63 0 28.333 23.31 51.63 51.66 51.63 28.35 0 51.659-23.297 51.659-51.63 0-28.333-23.31-51.63-51.66-51.63z" p-id="2661"></path></svg>
+                <span class="p-label">{{ .Site.Params.institution }}</span>
+              </li>
+              {{ end }}
+
+              {{ if .Site.Params.email }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target ">
+                <svg class="octicon octicon-mail" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z">
+                  </path>
+                </svg>
+                <a class="u-email link-gray-dark " href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a>
+              </li>
+              {{ end }}
+
+              {{ if .Site.Params.wechat }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target ">
+                <svg class="octicon octicon-wechat" class="icon" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1516" width="16" height="16"><path d="M806.287212 309.998684c13.642769 0 27.127442 1.050875 40.528417 2.631837C810.407012 133.842355 629.080008 1.032275 422.076327 1.032275 190.688636 1.032275 1.112733 167.275045 1.112733 378.379926c0 121.864245 63.061771 221.92052 168.465415 299.536438l-42.100079 133.470365 147.122433-77.783315c52.692523 10.992333 94.922799 22.27296 147.475825 22.27296 13.20568 0 26.309062-0.678884 39.310147-1.757657-8.2396-29.666281-13.001085-60.727528-13.001085-92.960546 0-193.8538 157.910172-351.159486 357.901823-351.159487z m-226.356512-120.301883c31.684332 0 52.683223 21.975367 52.683222 55.370858 0 33.255994-20.998891 55.519654-52.692522 55.519654-31.544835 0-63.191968-22.27296-63.191968-55.519654 0-33.39549 31.647133-55.370858 63.191968-55.370858zM285.323142 300.596612c-31.554135 0-63.405863-22.27296-63.405863-55.528953 0-33.39549 31.851728-55.370858 63.405863-55.370858 31.544835 0 52.543726 21.975367 52.543726 55.370858 0 33.255994-20.998891 55.519654-52.543726 55.519654z" p-id="1517"></path><path d="M1190.460898 655.8201c0-177.393199-168.400317-321.986094-357.557732-321.986094-200.289244 0-358.04132 144.592894-358.041319 321.986094 0 177.700092 157.752075 321.976794 358.041319 321.976794 41.923384 0 84.237358-11.159729 126.328138-22.27296l115.447401 66.651484-31.656433-110.881212c84.507051-66.80958 147.438625-155.417832 147.438626-255.474106z m-473.618918-55.519654c-20.961692 0-42.127979-21.966067-42.127978-44.387824 0-22.114864 21.166287-44.369224 42.127978-44.369224 31.823828 0 52.683223 22.25436 52.683223 44.369224 0 22.412457-20.859394 44.387824-52.683223 44.387824z m231.536487 0c-20.831495 0-41.830386-21.966067-41.830386-44.387824 0-22.114864 20.998891-44.369224 41.830386-44.369224 31.544835 0 52.683223 22.25436 52.683223 44.369224 0 22.412457-21.138388 44.387824-52.683223 44.387824z" p-id="1518"></path></svg>
+                <span class="p-label">{{ .Site.Params.wechat }}</span>
+              </li>
+              {{ end }}
+
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target ">
+                <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                  </path>
+                </svg>
+                {{ if .Site.Params.url }}
+                <a rel="nofollow me" class="link-gray-dark" href="{{ .Site.Params.url }}">{{ .Site.Params.url }}</a>
+                {{ else }}
+                <a rel="nofollow me" class="link-gray-dark" href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-top color-border-secondary pt-3 mt-3 clearfix hide-sm hide-md">
+          <h2 class="mb-2 h4">Organizations</h2>
+          {{ if .Site.Params.github}}
+          <a class="avatar-group-item" href="https://github.com/{{ .Site.Params.github }}">
+            <img alt="@github" width="32" height="32" src="{{ "images/github.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.twitter}}
+          <a class="avatar-group-item" href="https://twitter.com/{{ .Site.Params.twitter }}">
+            <img alt="@twitter" width="32" height="32" src="{{ "images/twitter.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.facebook}}
+          <a class="avatar-group-item" href="https://facebook.com/{{ .Site.Params.facebook }}">
+            <img alt="@facebook" width="32" height="32" src="{{ "images/facebook.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.links }}
+          {{ range .Site.Params.links }}
+          {{ if .icon }}
+          <a class="avatar-group-item" href="{{ .href }}">
+            <img alt="@{{ .title }}" width="32" height="32" src="{{ .icon }}" class="avatar">
+          </a>
+          {{ else }}
+          <a class="avatar-group-item" href="{{ .href }}">
+            <img alt="@{{ .title }}" width="32" height="32" src='{{ "images/link.png" | absURL }}' class="avatar">
+          </a>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+
+          {{ if .Site.Params.rss }}
+          <a class="avatar-group-item" href="{{ "index.xml" | absURL }}">
+            <img alt="@rss" width="32" height="32" src="{{ "images/rss.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+      {{ partial "mobile-menus.html" . }}
+      {{ if .IsHome }}
+      {{ block "overview" . }}{{ end }}
+      {{ else }}
+      {{ block "posts" . }}{{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+<script>
+window.onscroll = function (e) {
+  const headerImg = document.querySelector('#headerImg');
+  if (headerImg.getBoundingClientRect().bottom <= 0) {
+    document.querySelector('#headerStuck').classList.add('is-stuck');
+  } else {
+    document.querySelector('#headerStuck').classList.remove('is-stuck');
+  }
+};
+</script>
